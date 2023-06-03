@@ -14,7 +14,8 @@ jobs:
       with:
         python-version: '3.x'
     - run: |
-        python blocked-names/generate-domains-blocklist.py > ../blocked-names.txt 
+        cd blocked-names
+        python generate-domains-blocklist.py > ../blocked-names.txt 
         chmod +x ./dnscrypt-proxy-config.sh
         ./dnscrypt-proxy-config.sh
         git config user.name "yvche"
