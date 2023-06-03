@@ -15,9 +15,10 @@ jobs:
         python-version: '3.x'
     - run: |
         cd blocked-names
-        python generate-domains-blocklist.py > ../blocked-names.txt 
-        chmod +x ../dnscrypt-proxy-config.sh
-        ../dnscrypt-proxy-config.sh
+        python generate-domains-blocklist.py > ../blocked-names.txt
+        cd ../
+        chmod +x ./dnscrypt-proxy-config.sh
+        ./dnscrypt-proxy-config.sh
         git config user.name "yvche"
         git config user.email "135419997+yvche@users.noreply.github.com"
         git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
